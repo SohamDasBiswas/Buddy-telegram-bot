@@ -8,13 +8,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def get_affirmations():                     #========================================Affermation  d
+def get_affirmations():                     #========================================Affermation  
   response=requests.get("https://www.affirmations.dev/")
   data=json.loads(response.text)
   affirmation=data['affirmation']
   return(affirmation)
 
-def get_trivia(number):                   #========================================Trivia         d
+def get_trivia(number):                   #========================================Trivia         
   url = "https://numbersapi.p.rapidapi.com/"+str(number)+"/trivia"
   querystring = {"fragment":"true","notfound":"floor","json":"true"}
   headers = {
@@ -26,7 +26,7 @@ def get_trivia(number):                   #=====================================
   trivia= json_data['text']
   return(trivia)
 
-def get_pokemon(pokemon):                 #========================================Pokemon          d
+def get_pokemon(pokemon):                 #========================================Pokemon          
   response=requests.get("https://pokeapi.co/api/v2/pokemon/"+pokemon)
   if(response.text=="Not Found"):
     return "notfound"
@@ -35,23 +35,23 @@ def get_pokemon(pokemon):                 #=====================================
   return(pokemon_image_url)
 
 
-def get_quote():                            #========================================Quote           d
+def get_quote():                            #========================================Quote           
   response = requests.get("https://zenquotes.io/api/random")
   json_data = json.loads(response.text)
   quote = json_data[0]['q'] + " - " + json_data[0]['a']
   return(quote)
 
-def jokes():                              #========================================Buddyjokes          d
+def jokes():                              #========================================Buddyjokes          
   joke= pyjokes.get_joke()
   return joke
 
-def get_dadjoke():                          #========================================Dadjoke            d
+def get_dadjoke():                          #========================================Dadjoke            
   response=requests.get("https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes")
   json_data = json.loads(response.text)
   joke= json_data['setup'] + "\n" + json_data['punchline']
   return(joke)
 
-def get_chucknorris():                    #========================================Chucknorris           d
+def get_chucknorris():                    #========================================Chucknorris           
   url = "https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random"
   load_dotenv() 
   headers = {
@@ -63,18 +63,18 @@ def get_chucknorris():                    #=====================================
   json_data=json.loads(response.text)
   return json_data
 
-def get_geekjoke():                       #========================================GreekJokes           d t
+def get_geekjoke():                       #========================================GreekJokes           
   response = requests.get("https://geek-jokes.sameerkumar.website/api?format=json")
   json_data = json.loads(response.text)
   geekjoke=json_data["joke"]
   return(geekjoke)
 
-def get_roast():                          #========================================Roast                d t
+def get_roast():                          #========================================Roast                
   response=requests.get("https://insult.mattbas.org/api/insult")
   roast=response.text
   return(roast)
 
-def get_news():                           #========================================News                   d t
+def get_news():                           #========================================News                   
   url = "https://google-news1.p.rapidapi.com/top-headlines"
   load_dotenv()
   querystring = {"country":"INDIA","lang":"en","limit":"50","media":"true"}
