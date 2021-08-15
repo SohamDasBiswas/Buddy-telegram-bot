@@ -6,6 +6,7 @@ import requests
 import json
 from dotenv import load_dotenv
 from lxml import etree
+from keep_alive import keep_alive
 import responses as R
 load_dotenv()
 client= Bot(os.getenv("BOT_TOKEN"))
@@ -38,4 +39,5 @@ def main():
   dp.add_error_handler(error)
   updater.start_polling()
   updater.idle()
+keep_alive()
 main()

@@ -192,11 +192,12 @@ def sample_responses(message):
     roast=roast+random.choice(funny_answers)
     return roast
 
-  elif message in ("/roastme"): 
+  elif message.startswith("/roastme"): 
     roast=get_roast()
-    roast=roast+".\n#roasted "+"\n"
-    roast=roast+random.choice(funny_answers)
-    return roast
+    
+    roast1=roast+".\n#roasted "+"\n"
+    roast2=roast1+random.choice(funny_answers)
+    return roast2
 
   elif message in ("/sourcecode"):
     return "https://github.com/SohamDasBiswas/Buddy-telegram-bot"
